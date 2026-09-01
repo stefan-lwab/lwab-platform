@@ -1,0 +1,272 @@
+/* ============================================================
+   LWAB ECOSYSTEM — CANONICAL DESIGN TOKENS
+   Version: 1.1.0  ·  Source of truth: packages/lwui
+
+   NAVY IS THE BRAND AND THE DEFAULT.
+   `:root` is the navy theme. `.light` is the optional day mode.
+   No app may redefine these values locally.
+
+   Brand anchors (fixed by the LWAB brand):
+     accent / gold        #F2DE9C   46 77% 78%
+     content background   #0F1729   222 46% 11%
+     sidebar top          #0E1728   219 48% 11%
+     sidebar bottom       #090E1C   224 51% 7%
+     borders / dividers   #4D4733   46 20% 25%
+
+   All colors are raw HSL channels (no hsl() wrapper) so they can be
+   composed with alpha:  hsl(var(--primary) / 0.4)
+   ============================================================ */
+
+:root {
+  /* ── Surfaces ───────────────────────────────── */
+  --background: 222 46% 11%;          /* #0F1729 */
+  --foreground: 210 40% 98%;
+
+  --card: 222 40% 15%;
+  --card-foreground: 210 40% 98%;
+
+  --popover: 222 42% 13%;
+  --popover-foreground: 210 40% 98%;
+
+  /* ── Brand: gold is primary on navy ─────────── */
+  --primary: 46 77% 78%;              /* #F2DE9C */
+  --primary-foreground: 222 47% 11%;
+
+  --secondary: 222 33% 20%;
+  --secondary-foreground: 210 40% 96%;
+
+  --muted: 222 33% 20%;
+  --muted-foreground: 220 12% 68%;    /* ≥ 4.5:1 on #0F1729 */
+
+  --accent: 46 77% 78%;
+  --accent-foreground: 222 47% 11%;
+
+  --destructive: 0 72% 55%;
+  --destructive-foreground: 0 0% 100%;
+
+  /* ── Hairlines ──────────────────────────────── */
+  --border: 46 20% 25%;               /* #4D4733 */
+  --input: 46 20% 25%;
+  --ring: 46 77% 78%;
+
+  --radius: 0.75rem;
+
+  /* ── Navy scale ─────────────────────────────── */
+  --navy-950: 224 51% 7%;
+  --navy-900: 222 46% 11%;
+  --navy-800: 222 40% 15%;
+  --navy-700: 222 33% 20%;
+  --navy-600: 220 20% 45%;
+
+  /* ── Gold scale (legacy alias: "teal") ──────── */
+  --teal-500: 46 60% 60%;
+  --teal-400: 46 77% 78%;
+  --teal-300: 46 88% 84%;
+
+  /* ── KPI tone scale (MARATHON card tones) ───── */
+  --tone-gold: 46 77% 78%;
+  --tone-teal: 174 66% 52%;
+  --tone-violet: 258 80% 72%;
+  --tone-emerald: 152 60% 52%;
+  --tone-blue: 213 85% 66%;
+  --tone-amber: 38 92% 62%;
+
+  /* ── Semantic feedback (tuned for navy) ─────── */
+  --success: 152 60% 45%;
+  --success-foreground: 0 0% 100%;
+
+  --warning: 38 92% 58%;
+  --warning-foreground: 222 47% 11%;
+
+  --info: 213 85% 62%;
+  --info-foreground: 222 47% 11%;
+
+  --status-success: 152 60% 52%;
+  --status-warning: 38 92% 58%;
+  --status-error: 0 72% 58%;
+  --status-info: 213 85% 66%;
+
+  /* ── Workflow statuses ──────────────────────── */
+  --status-requested: 25 90% 60%;
+  --status-pending: 45 90% 58%;
+  --status-confirmed: 213 85% 66%;
+  --status-in-transit: 258 80% 72%;
+  --status-delivered: 152 60% 52%;
+  --status-cancelled: 0 72% 58%;
+
+  /* ── Kanban lanes ───────────────────────────── */
+  --kanban-todo: 222 33% 16%;
+  --kanban-progress: 213 40% 18%;
+  --kanban-review: 38 32% 18%;
+  --kanban-done: 152 30% 16%;
+
+  /* ── Work pass / shift colors ───────────────── */
+  --pass-red: 0 70% 58%;
+  --pass-red-foreground: 0 0% 100%;
+  --pass-yellow: 45 88% 60%;
+  --pass-yellow-foreground: 45 90% 12%;
+  --pass-green: 148 55% 48%;
+  --pass-green-foreground: 0 0% 100%;
+  --pass-blue: 213 70% 58%;
+  --pass-blue-foreground: 0 0% 100%;
+  --pass-purple: 272 60% 62%;
+  --pass-purple-foreground: 0 0% 100%;
+  --pass-orange: 25 88% 58%;
+  --pass-orange-foreground: 25 90% 12%;
+  --pass-gray: 220 12% 55%;
+  --pass-gray-foreground: 0 0% 100%;
+
+  /* ── Gradients ──────────────────────────────── */
+  --gradient-primary: linear-gradient(135deg, hsl(46 77% 78%), hsl(46 60% 60%));
+  --gradient-accent: linear-gradient(135deg, hsl(46 77% 78%), hsl(46 88% 84%));
+  --gradient-gold: linear-gradient(135deg, hsl(46 77% 78%), hsl(46 88% 84%));
+  --gradient-hero: linear-gradient(135deg, hsl(222 46% 11%), hsl(222 40% 15%), hsl(224 51% 7%));
+  --gradient-card: linear-gradient(180deg, hsl(222 40% 15%), hsl(222 44% 13%));
+  --gradient-sidebar: linear-gradient(180deg, hsl(219 48% 11%), hsl(224 51% 7%));
+
+  /* ── Elevation (black based — navy shadows vanish) ── */
+  --shadow-sm: 0 1px 2px 0 hsl(0 0% 0% / 0.35);
+  --shadow-md: 0 4px 6px -1px hsl(0 0% 0% / 0.45), 0 2px 4px -2px hsl(0 0% 0% / 0.35);
+  --shadow-lg: 0 10px 15px -3px hsl(0 0% 0% / 0.5), 0 4px 6px -4px hsl(0 0% 0% / 0.35);
+  --shadow-xl: 0 20px 25px -5px hsl(0 0% 0% / 0.55), 0 8px 10px -6px hsl(0 0% 0% / 0.4);
+  --shadow-card: 0 1px 3px hsl(0 0% 0% / 0.35), 0 1px 2px -1px hsl(0 0% 0% / 0.3);
+  --shadow-card-hover: 0 12px 32px -12px hsl(0 0% 0% / 0.6);
+
+  /* ── Glassmorphism ──────────────────────────── */
+  --glass-bg: 222 40% 15% / 0.72;
+  --glass-border: 46 20% 25% / 0.6;
+  --glass-shadow: 0 0% 0% / 0.4;
+
+  /* ── Motion ─────────────────────────────────── */
+  --motion-fast: 150ms;
+  --motion-base: 200ms;
+  --motion-slow: 300ms;
+  --ease-out-soft: cubic-bezier(0.16, 1, 0.3, 1);
+
+  /* ── Sidebar (brand gradient #0E1728 → #090E1C) ── */
+  --sidebar-background: 219 48% 11%;
+  --sidebar-foreground: 210 40% 96%;
+  --sidebar-primary: 46 77% 78%;
+  --sidebar-primary-foreground: 222 47% 11%;
+  --sidebar-accent: 222 40% 17%;
+  --sidebar-accent-foreground: 210 40% 98%;
+  --sidebar-border: 46 20% 25%;
+  --sidebar-ring: 46 77% 78%;
+}
+
+/* `.dark` is kept as an alias of the default so existing
+   dark-mode toggles and `dark:` variants keep working. */
+.dark {
+  color-scheme: dark;
+}
+
+/* ============================================================
+   OPTIONAL DAY MODE
+   Apply `.light` on <html>. Same variable names, light surfaces,
+   navy primary. The sidebar stays dark in both themes.
+   ============================================================ */
+.light {
+  color-scheme: light;
+
+  --background: 220 20% 97%;
+  --foreground: 222 47% 11%;
+
+  --card: 0 0% 100%;
+  --card-foreground: 222 47% 11%;
+
+  --popover: 0 0% 100%;
+  --popover-foreground: 222 47% 11%;
+
+  --primary: 222 47% 20%;
+  --primary-foreground: 210 40% 98%;
+
+  --secondary: 220 14% 96%;
+  --secondary-foreground: 222 47% 11%;
+
+  --muted: 220 14% 96%;
+  --muted-foreground: 220 9% 44%;
+
+  --accent: 46 76% 78%;
+  --accent-foreground: 222 47% 11%;
+
+  --destructive: 0 84% 60%;
+  --destructive-foreground: 0 0% 100%;
+
+  --border: 220 13% 87%;
+  --input: 220 13% 87%;
+  --ring: 222 47% 20%;
+
+  --navy-950: 222 47% 11%;
+  --navy-900: 217 33% 17%;
+  --navy-800: 215 28% 23%;
+  --navy-700: 215 25% 32%;
+  --navy-600: 215 20% 45%;
+
+  --teal-500: 46 55% 42%;
+  --teal-400: 46 76% 78%;
+  --teal-300: 46 88% 71%;
+
+  --tone-gold: 46 55% 42%;
+  --tone-teal: 174 62% 40%;
+  --tone-violet: 258 60% 55%;
+  --tone-emerald: 152 55% 38%;
+  --tone-blue: 213 80% 50%;
+  --tone-amber: 38 90% 48%;
+
+  --success: 142 76% 36%;
+  --success-foreground: 0 0% 100%;
+  --warning: 38 92% 50%;
+  --warning-foreground: 0 0% 100%;
+  --info: 217 91% 50%;
+  --info-foreground: 0 0% 100%;
+
+  --status-success: 142 71% 40%;
+  --status-warning: 38 90% 45%;
+  --status-error: 0 78% 55%;
+  --status-info: 217 85% 52%;
+
+  --status-requested: 25 95% 48%;
+  --status-pending: 45 93% 42%;
+  --status-confirmed: 217 91% 55%;
+  --status-in-transit: 262 83% 58%;
+  --status-delivered: 142 71% 40%;
+  --status-cancelled: 0 78% 55%;
+
+  --kanban-todo: 220 14% 96%;
+  --kanban-progress: 210 100% 96%;
+  --kanban-review: 38 100% 96%;
+  --kanban-done: 142 76% 96%;
+
+  --pass-red: 0 75% 60%;
+  --pass-red-foreground: 0 0% 100%;
+  --pass-yellow: 45 90% 55%;
+  --pass-yellow-foreground: 45 90% 15%;
+  --pass-green: 140 60% 45%;
+  --pass-green-foreground: 0 0% 100%;
+  --pass-blue: 210 70% 55%;
+  --pass-blue-foreground: 0 0% 100%;
+  --pass-purple: 280 60% 55%;
+  --pass-purple-foreground: 0 0% 100%;
+  --pass-orange: 25 90% 55%;
+  --pass-orange-foreground: 25 90% 15%;
+  --pass-gray: 220 10% 70%;
+  --pass-gray-foreground: 220 20% 20%;
+
+  --gradient-primary: linear-gradient(135deg, hsl(222 47% 20%), hsl(222 47% 30%));
+  --gradient-accent: linear-gradient(135deg, hsl(46 76% 78%), hsl(46 88% 71%));
+  --gradient-gold: linear-gradient(135deg, hsl(46 76% 78%), hsl(46 88% 71%));
+  --gradient-hero: linear-gradient(135deg, hsl(222 47% 15%), hsl(222 47% 25%), hsl(222 40% 30%));
+  --gradient-card: linear-gradient(180deg, hsl(0 0% 100%), hsl(220 20% 98%));
+  --gradient-sidebar: linear-gradient(180deg, hsl(219 48% 11%), hsl(224 51% 7%));
+
+  --shadow-sm: 0 1px 2px 0 hsl(222 47% 11% / 0.05);
+  --shadow-md: 0 4px 6px -1px hsl(222 47% 11% / 0.1), 0 2px 4px -2px hsl(222 47% 11% / 0.1);
+  --shadow-lg: 0 10px 15px -3px hsl(222 47% 11% / 0.1), 0 4px 6px -4px hsl(222 47% 11% / 0.1);
+  --shadow-xl: 0 20px 25px -5px hsl(222 47% 11% / 0.1), 0 8px 10px -6px hsl(222 47% 11% / 0.1);
+  --shadow-card: 0 1px 3px hsl(222 47% 11% / 0.08), 0 1px 2px -1px hsl(222 47% 11% / 0.08);
+  --shadow-card-hover: 0 10px 40px -10px hsl(222 47% 11% / 0.15);
+
+  --glass-bg: 0 0% 100% / 0.8;
+  --glass-border: 220 13% 91% / 0.6;
+  --glass-shadow: 222 47% 11% / 0.08;
+}
